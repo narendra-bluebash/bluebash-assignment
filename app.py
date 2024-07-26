@@ -2,7 +2,6 @@ import csv
 import sys
 from geopy.geocoders import Nominatim
 
-
 geolocator = Nominatim(user_agent="bluebash_location")
 
 def fetch_geo_coordinates(address):
@@ -11,7 +10,6 @@ def fetch_geo_coordinates(address):
         return location.latitude, location.longitude
     else:
         return None,None
-
 
 def validate_row(row):
     required_fields = [row['Email'], row['First Name'], row['Last Name'],
@@ -22,7 +20,6 @@ def validate_row(row):
     
     if not all(required_fields):
         return False
-
     return True
 
 
@@ -33,7 +30,6 @@ def process_csv(input_file, output_file):
         fieldnames = reader.fieldnames + ["Residential_lat", "Residential_lng","Postal_lat","Postal_lng"]
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
         writer.writeheader()
-
         c=0
         for row in reader:
             print(c)
