@@ -20,8 +20,8 @@ def validate_row(row):
     
     if not all(required_fields):
         return False
-    return True
-
+    else:
+        return True
 
 def process_csv(input_file, output_file):
     
