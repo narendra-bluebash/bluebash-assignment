@@ -3,7 +3,6 @@ from unittest.mock import patch, MagicMock
 from app import fetch_geo_coordinates, validate_row, process_csv
 
 class TestGeoCoordinates(unittest.TestCase):
-    
     @patch('app.geolocator.geocode')
     def test_fetch_geo_coordinates_valid(self, mock_geocode):
         mock_geocode.return_value = MagicMock(latitude=-20.272494	, longitude=148.718147)
@@ -12,9 +11,7 @@ class TestGeoCoordinates(unittest.TestCase):
         self.assertEqual(lat, -20.272494)
         self.assertEqual(lng, 148.718147)
 
-        
 class TestValidateRow(unittest.TestCase):
-
     def test_validate_row_valid(self):
         row = {
             'Email': 'test@example.com', 
